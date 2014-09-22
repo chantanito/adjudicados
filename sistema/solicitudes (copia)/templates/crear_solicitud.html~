@@ -1,0 +1,31 @@
+<!-- <form action="/crear/" method="post">{% csrf_token %} !-->
+<form action="/crear/" method="post">
+	<h1>Solicitud de Vivienda</h1>	
+	<table border="5px">
+		<tr><th colspan="5">Datos B&aacute;sicos</th>
+		<tr><td colspan="2">{{ form.nombre.errors }}</td></tr>		
+		<tr><td>Nombre: </td><td>{{ form.nombre }}</td><td>Segundo Nombre: </td><td>{{ form.snombre }}</td></tr>
+		<tr><td colspan="2">{{ form.apellido.errors }}</td></tr>
+		<tr><td>Apellido: </td><td>{{ form.apellido }}</td><td>Segundo Apellido: </td><td>{{ form.sapellido}}</td></tr>
+		<tr><td colspan="2">{{ form.cedula.errors }}</td><td colspan="2">{{ form.fecha_nacimiento.errors }}</td></tr>
+		<tr><td>C&eacute;dula: </td><td>{{ form.cedula }}</td><td>Fecha de Nacimiento: </td><td>{{ form.fecha_nacimiento }}</td></tr>
+		<tr><td colspan="2">{{ form.tel1.errors }}</td></tr>		
+		<tr><td>N&uacute;mero de Celular </td><td>{{ form.tel1 }}</td><td>N&uacute;mero Fijo: </td><td>{{ form.tel2 }}</td></tr>
+		<tr><td colspan="2">{{ form.cotizacion.errors }}</td><td colspan="2">{{ form.profesion.errors }}</td></tr>		
+		<tr><td>Cotiza FAOV: </td><td>{{ form.cotizacion }}</td><td>Profesi&oacute;n: </td><td>{{ form.profesion }}</td></tr>
+		<tr><td colspan="2">{{ form.email.errors }}</td></tr>		
+		<tr><td>Correo Electr&oacute;nico: </td><td>{{ form.email }}</td></tr>
+		<tr><td colspan="2">{{ form.observaciones.errors }}</td></tr>		
+		<tr><td>Observaciones: </td><td>{{ form.observaciones }}</td></tr>
+<!--		<tr><th colspan="5">Datos de Terreno</th>
+		<tr><td>Tiene Terreno: </td><td> {{ form.posesion }}</td><td>Es propio: </td><td> {{ form.tenencia }}</td></tr>
+		<tr><td>Servicios del Terreno: </td><td>{{ form.servicios }}</td></tr>
+		<tr><th colspan="5">Datos de Solicitud</th></tr>
+		<tr><td>Estado: </td><td>{{ form.estado }}</td><td>Municipio:</td><td> {{ form.municipio }}</td></tr>
+		<tr><td>Parroquia: </td><td>{{ form.parroquia }}</td><td>Sector: </td><td>{{ form.sector }}</td></tr>
+		<tr><td>Av./Calle: </td><td>{{ form.calle }}</td><td>Edificio/Casa: </td><td>{{ form.casa }}</td></tr>
+		<tr><td>N Casa/Apartamento: </td><td> {{ form.ncasa}}</td> !-->
+</table>
+
+	<input type="submit" name="submit" value="Crear Solicitud">
+</form>

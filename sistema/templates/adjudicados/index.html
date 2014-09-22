@@ -1,0 +1,9 @@
+{% if ultimos_adjudicados %}
+    <ul>
+        {% for adjudicado in ultimos_adjudicados %}
+            <li><a href="{% url 'adjudicados:detail' adjudicado.id %}">{{ adjudicado.fecha_de_publicacion}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay adjudicados disponibles.</p>
+{% endif %}

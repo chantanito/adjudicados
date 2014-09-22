@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>
+        Solicitud de Vivienda
+    </h1>
+    <hr>
+        {% for solicitudes in solicitudes %}
+
+    <div class="art">
+        <h2>
+            {{ solicitudes.nombre }}
+            {{ solicitudes.apellido }}
+            {{ solicitudes.cedula }}
+        </h2>
+        <h3>Publicado el {{ solicitudes.nacimiento }}</h3>
+        <p>
+            {{ solicitudes.observaciones }}
+        </p>
+    </div>
+
+    <hr>
+        {% endfor %}
+</div>

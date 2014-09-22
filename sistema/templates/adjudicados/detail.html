@@ -1,0 +1,14 @@
+<h1>{{ adjudicados.nombre }}</h1>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'adjudicados:vote' adjudicados.id %}" method="post">
+    {% csrf_token %}
+    {% for nombre in adjudicados.nombre_set.all %}
+        <input type="radio" name="nombre" id="nombre{{ forloop.counter }}" value="{{ nombre.id }}" />
+        <label for="nombre{{ forloop.counter }}">{{ nombre }}</label>
+    {% endfor %}
+    <input type="submit" value="Cargar">
+</form>

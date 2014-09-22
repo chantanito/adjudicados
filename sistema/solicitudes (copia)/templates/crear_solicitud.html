@@ -1,0 +1,204 @@
+<style type="text/css">
+    body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+    color: #333;
+    background: #fff;
+}
+h1.titulo {
+    background-color: red;
+}
+    /* TABLAS */
+    table {
+    border-collapse: collapse;
+    border-color: #ccc;
+}
+
+    td, th {
+        font-size: 11px;
+        line-height: 13px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+        padding: 5px;
+        font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+    }
+
+    th {
+        text-align: left;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    thead th,
+    tfoot td {
+        color: #666;
+        padding: 2px 5px;
+        font-size: 11px;
+        background: #e1e1e1 url(../img/nav-bg.gif) top left repeat-x;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tfoot td {
+        border-bottom: none;
+        border-top: 1px solid #ddd;
+    }
+
+    thead th:first-child,
+    tfoot td:first-child {
+        border-left: none !important;
+    }
+
+    thead th.optional {
+        font-weight: normal !important;
+    }
+
+    fieldset table {
+        border-right: 1px solid #eee;
+    }
+
+    tr.row-label td {
+        font-size: 9px;
+        padding-top: 2px;
+        padding-bottom: 0;
+        border-bottom: none;
+        color: #666;
+        margin-top: -1px;
+    }
+
+    tr.alt {
+        background: #f6f6f6;
+    }
+
+    .row1 {
+        background: #EDF3FE;
+    }
+
+    .row2 {
+        background: white;
+    }
+
+    /*******ERRORES************/
+
+    ul.messagelist {
+    padding: 0 0 5px 0;
+    margin: 0;
+}
+
+    ul.messagelist li {
+        font-size: 12px;
+        display: block;
+        padding: 4px 5px 4px 25px;
+        margin: 0 0 3px 0;
+        border-bottom: 1px solid #ddd;
+        color: #666;
+        background: #ffc url(../img/icon_success.gif) 5px .3em no-repeat;
+    }
+
+    ul.messagelist li.warning{
+        background-image: url(.../icon_alert.gif);
+    }
+
+    ul.messagelist li.error{
+        background-image: url(../img/icon_error.gif);
+    }
+
+    .errornote {
+        font-size: 12px !important;
+        display: block;
+        padding: 4px 5px 4px 25px;
+        margin: 0 0 3px 0;
+        border: 1px solid red;
+        color: red;
+        background: #ffc url(../img/icon_error.gif) 5px .3em no-repeat;
+    }
+
+    ul.errorlist {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .errorlist li {
+        font-size: 12px !important;
+        display: block;
+        padding: 4px 5px 4px 25px;
+        margin: 0 0 3px 0;
+        border: 1px solid red;
+        color: white;
+        background: red url(/img/icon_alert.gif) 5px .3em no-repeat;
+    }
+
+    .errorlist li a {
+            color: white;
+        text-decoration: underline;
+    }
+
+    td ul.errorlist {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    td ul.errorlist li {
+        margin: 0 !important;
+    }
+
+    .errors {
+        background: #ffc;
+    }
+
+    .errors input, .errors select, .errors textarea {
+        border: 1px solid red;
+    }
+
+    div.system-message {
+        background: #ffc;
+        margin: 10px;
+        padding: 6px 8px;
+        font-size: .8em;
+    }
+
+    div.system-message p.system-message-title {
+        padding: 4px 5px 4px 25px;
+        margin: 0;
+        color: red;
+        background: #ffc url(../img/icon_error.gif) 5px .3em no-repeat;
+    }
+
+    .description {
+        font-size: 12px;
+        padding: 5px 0 0 12px;
+    }
+</style>
+
+<form action="/crear/" method="post">{% csrf_token %}
+	<h1 class="titulo">Solicitud de Vivienda</h1>
+	<table>
+		<tr><th colspan="5" class="titulo">Datos B&aacute;sicos</th>
+		<tr><td colspan="2">{{ form.nombre.errors }}</td></tr>		
+		<tr><td>Nombre: </td><td>{{ form.nombre }}</td><td>Segundo Nombre: </td><td>{{ form.snombre }}</td></tr>
+		<tr><td colspan="2">{{ form.apellido.errors }}</td></tr>
+		<tr><td>Apellido: </td><td>{{ form.apellido }}</td><td>Segundo Apellido: </td><td>{{ form.sapellido}}</td></tr>
+		<tr><td colspan="2">{{ form.cedula.errors }}</td><td colspan="2">{{ form.fecha_nacimiento.errors }}</td></tr>
+		<tr><td>C&eacute;dula: </td><td>{{ form.cedula }}</td><td>Fecha de Nacimiento: </td><td>{{ form.fecha_nacimiento }}</td></tr>
+		<tr><td colspan="2">{{ form.tel1.errors }}</td></tr>		
+		<tr><td>N&uacute;mero de Celular </td><td>{{ form.tel1 }}</td><td>N&uacute;mero Fijo: </td><td>{{ form.tel2 }}</td></tr>
+		<tr><td colspan="2">{{ form.cotizacion.errors }}</td><td colspan="2">{{ form.profesion.errors }}</td></tr>		
+		<tr><td>Cotiza FAOV: </td><td>{{ form.cotizacion }}</td><td>Profesi&oacute;n: </td><td>{{ form.profesion }}</td></tr>
+		<tr><td colspan="2">{{ form.email.errors }}</td></tr>		
+		<tr><td>Correo Electr&oacute;nico: </td><td>{{ form.email }}</td></tr>
+		<tr><td colspan="2">{{ form.observaciones.errors }}</td></tr>		
+		<tr><td>Observaciones: </td><td>{{ form.observaciones }}</td></tr>
+<!--		<tr><th colspan="5">Datos de Terreno</th>
+		<tr><td>Tiene Terreno: </td><td> {{ form.posesion }}</td><td>Es propio: </td><td> {{ form.tenencia }}</td></tr>
+		<tr><td>Servicios del Terreno: </td><td>{{ form.servicios }}</td></tr>
+		<tr><th colspan="5">Datos de Solicitud</th></tr>
+		<tr><td>Estado: </td><td>{{ form.estado }}</td><td>Municipio:</td><td> {{ form.municipio }}</td></tr>
+		<tr><td>Parroquia: </td><td>{{ form.parroquia }}</td><td>Sector: </td><td>{{ form.sector }}</td></tr>
+		<tr><td>Av./Calle: </td><td>{{ form.calle }}</td><td>Edificio/Casa: </td><td>{{ form.casa }}</td></tr>
+		<tr><td>N Casa/Apartamento: </td><td> {{ form.ncasa}}</td> !-->
+</table>
+
+	<input type="submit" name="submit" value="Crear Solicitud">
+</form>

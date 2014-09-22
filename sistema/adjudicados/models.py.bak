@@ -1,0 +1,31 @@
+import datetime
+from django.db import models
+from django.utils import timezone
+
+# Create your models here.
+class Adjudicado(forms.Adjudicado):
+    nombre = models.CharField(max_length=10)
+    segundo_nombre = models.CharField(max_length=10, null=True, blank=True)
+    apellido = models.CharField(max_length=10)
+    segundo_apellido = models.CharField(max_length=10, null=True, blank=True)
+    cedula = models.CharField(max_length=8, unique=True)
+    fecha_de_nacimiento = models.DateTimeField(null=True, blank=True)
+    correo_electronico = models.EmailField(null=True, blank =True)
+    direccion = models.CharField(max_length=300)
+    telefono_1 = models.CharField(max_length=11)
+    telefono_2 = models.CharField(max_length=11, null=True, blank=True)
+    fecha_de_publicacion = models.DateTimeField(auto_now=True)
+    
+    def __unicode__(self):
+        return self.nombre + " " + self.apellido + " - " + self.cedula + " - " + self.telefono_1
+
+class DatosSociales(models.Model):
+    pareja = models.ForeignKey(Adjudicado)
+    pnombre = models.CharField(max_length=10)
+    psegundo_nombre = models.CharField(max_length=10, null=True, blank=True)
+    papellido = models.CharField(max_length=10)
+    psegundo_apellido = models.CharField(max_length=10, null=True, blank=True)
+    pcedula = models.CharField(max_length=8, unique=True)
+    
+    def __unicode__(self):
+        return self.pnombre

@@ -1,0 +1,9 @@
+{% if todos_adjudicados %}
+    <ul>
+        {% for adjudicados in todos_adjudicados %}
+            <li><a href="/adjudicados/{{adjudicados.id}}/">{{ adjudicados.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay adjudicados</p>
+{% endif %}
